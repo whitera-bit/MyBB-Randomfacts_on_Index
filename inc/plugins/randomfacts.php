@@ -11,12 +11,12 @@ function randomfacts_info()
 {
 	return array(
 		"name"		        => "Randomfacts auf dem Index",
-		"description"	    => "Erstellt eine Datenbank, in die Random Fakts oder Informationen eingetragen und dann zufällig auf dem Index ausgegeben werden können.",
+		"description"	    	=> "Erstellt eine Datenbank, in die Random Fakts oder Informationen eingetragen und dann zufällig auf dem Index ausgegeben werden können.",
 		"website"	        => "Webseite des Plugins (Herstellerseite)",
 		"author"	        => "White_Rabbit (Tom)",
-		"authorsite"	    => "Webseite des Erstellers",
-		"version"	        => "1.0",
-		"compatibility"     => "18*"
+		"authorsite"	    	=> "Webseite des Erstellers",
+		"version"	        => "1.1",
+		"compatibility"     	=> "18*"
     );
 }
 
@@ -153,9 +153,9 @@ function randomfacts_install()
                         {$navigation}
                     </td>
                     <td class="trow1" align="center">
-						<div class="randomfacts">
-                        {$randomfacts_bit}
-						</div>
+			<div class="randomfacts">
+                       		 {$randomfacts_bit}
+			</div>
                     </td>
                 </tr>
             </table>
@@ -198,14 +198,14 @@ function randomfacts_install()
         'template'      => $db->escape_string('
         <html>
         <head>
-        <title>{$settings[\'bbname\']} - Hintergrundinformationen</title>
+        <title>{$settings[\'bbname\']} - Random Facts bearbeiten</title>
         {$headerinclude}
         </head>
         <body>
             {$header}
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
                 <tr>
-                    <td class="thead" colspan="2"><strong>Hintergrundinformationen</strong></td>
+                    <td class="thead" colspan="2"><strong>Random Facts bearbeiten</strong></td>
                 </tr>
                 <tr>
                     <td class="trow1" width="25%" valign="top">
@@ -252,14 +252,14 @@ function randomfacts_install()
         'template'      => $db->escape_string('
         <html>
         <head>
-            <title>{$settings[\'bbname\']} - Hintergrundinformationen</title>
+            <title>{$settings[\'bbname\']} - Random Facts hinzufügen</title>
             {$headerinclude}
         </head>
         <body>
             {$header}
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
                 <tr>
-                    <td class="thead" colspan="2"><strong>Hintergrundinformationen</strong></td>
+                    <td class="thead" colspan="2"><strong>Random Facts hinzufügen</strong></td>
                 </tr>
                 <tr>
                     <td class="trow1" width="25%" valign="top">
@@ -508,7 +508,7 @@ $plugins->add_hook("global_start", "randomfacts_global");
 
     $randomfacts_query = $db->query("SELECT * FROM ".TABLE_PREFIX."randomfacts ORDER BY rand() LIMIT 1");
 
-    $randomfact = $db->fetch_array($randomfacts_query);
+    $randomfacts = $db->fetch_array($randomfacts_query);
   
     eval("\$randomfacts = \"".$templates->get("index_randomfacts")."\";");
  }
