@@ -326,9 +326,9 @@ function randomfacts_install()
         <tr>
         <td class="trow1">
             <div class="index_randomfacts">
-                    <div class="index_randomfacts-title">{$randomfact[\'titel\']}</div>
+                    <div class="index_randomfacts-title">{$randomfacts[\'titel\']}</div>
                     <div class="index_randomfacts-content">
-                        {$randomfact[\'text\']}	
+                        {$randomfacts[\'text\']}	
                     </div>
              </div>
         </td>
