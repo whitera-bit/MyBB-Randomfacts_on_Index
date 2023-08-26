@@ -500,11 +500,11 @@ function randomfacts_deactivate()
 
 }
 
-$plugins->add_hook("global_start", "randomfacts_global");
+
  // Random Fact auf dem Index ausgeben
  function randomfacts_global() {
 
-    global $db, $randomfacts, $templates;
+    global $db, $randomfacts, $templates, $theme, $headerinclude;
 
     $randomfacts_query = $db->query("SELECT * FROM ".TABLE_PREFIX."randomfacts ORDER BY rand() LIMIT 1");
 
@@ -512,4 +512,7 @@ $plugins->add_hook("global_start", "randomfacts_global");
   
     eval("\$randomfacts = \"".$templates->get("index_randomfacts")."\";");
  }
+
+$plugins->add_hook("global_start", "randomfacts_global");
+$plugins->add_hook("global_end", "randomfacts_global");
 
